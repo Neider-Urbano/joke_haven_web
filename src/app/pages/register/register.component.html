@@ -1,0 +1,69 @@
+<app-navbar></app-navbar>
+
+<div
+  class="min-h-screen flex items-center justify-center bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900"
+>
+  <form
+    (ngSubmit)="onSubmit()"
+    class="bg-white p-8 rounded-lg shadow-2xl dark:bg-gray-700 transform transition-all duration-500 hover:scale-105 max-w-md mx-auto text-center w-[350px]"
+  >
+    <h2
+      class="text-3xl font-extrabold mb-4 flex items-center justify-center text-gray-800 dark:text-gray-200"
+    >
+      <i class="fas fa-user-plus text-green-500"></i>
+      <span class="ml-2">Register</span>
+    </h2>
+    <div *ngIf="errorMessage" class="text-red-500 mb-4">{{ errorMessage }}</div>
+    <div *ngIf="successMessage" class="text-green-500 mb-4">
+      {{ successMessage }}
+    </div>
+    <div class="relative mb-4">
+      <i class="fas fa-user absolute left-3 top-3 text-gray-400"></i>
+      <input
+        type="text"
+        placeholder="Username"
+        [(ngModel)]="username"
+        name="username"
+        class="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+        required
+      />
+    </div>
+    <div class="relative mb-4">
+      <i class="fas fa-envelope absolute left-3 top-3 text-gray-400"></i>
+      <input
+        type="email"
+        placeholder="Email"
+        [(ngModel)]="email"
+        name="email"
+        class="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+        required
+      />
+    </div>
+    <div class="relative mb-4">
+      <i class="fas fa-lock absolute left-3 top-3 text-gray-400"></i>
+      <input
+        type="password"
+        placeholder="Password"
+        [(ngModel)]="password"
+        name="password"
+        class="w-full p-2 pl-10 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-green-500"
+        required
+      />
+    </div>
+    <button
+      type="submit"
+      class="w-full bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors duration-300"
+    >
+      Register
+    </button>
+    <div class="mt-4 text-gray-600 dark:text-gray-300">
+      <span>Already have an account? </span>
+      <a
+        routerLink="/login"
+        class="text-blue-500 hover:underline dark:text-blue-400"
+      >
+        Login
+      </a>
+    </div>
+  </form>
+</div>

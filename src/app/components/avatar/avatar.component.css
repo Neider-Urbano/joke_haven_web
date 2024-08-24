@@ -1,0 +1,36 @@
+@keyframes gradient-animation {
+  0% {
+    border-color: #ff0000;
+  }
+  25% {
+    border-color: #00ff00;
+  }
+  50% {
+    border-color: #0000ff;
+  }
+  75% {
+    border-color: #ffff00;
+  }
+  100% {
+    border-color: #ff0000;
+  }
+}
+
+.avatar-container {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 3px; /* Border width */
+  background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff, #ffff00);
+  background-size: 200% 200%;
+  animation: gradient-animation 5s ease infinite;
+}
+
+.avatar-svg {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: white; /* To ensure the avatar is circular and doesn't show the overflow */
+}

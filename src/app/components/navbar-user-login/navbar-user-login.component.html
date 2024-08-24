@@ -1,0 +1,123 @@
+<nav
+  class="fixed top-0 left-0 right-0 bg-gray-800 p-4 dark:bg-gray-900 shadow-md z-50"
+>
+  <div
+    class="container max-w-screen-lg mx-auto flex justify-between items-center"
+  >
+    <a routerLink="/">
+      <div class="flex items-center gap-4">
+        <i
+          class="fas fa-smile-beam animate-bounce text-yellow-500 text-2xl"
+        ></i>
+        <h1 class="text-white text-2xl font-bold">Joke Haven</h1>
+      </div>
+    </a>
+    <div class="flex items-center gap-3">
+      <button
+        (click)="openFavoritesModal()"
+        class="hidden md:flex text-white hover:text-gray-300 transition duration-300 relative"
+      >
+        <i class="fas fa-heart text-red-500 text-2xl"></i>
+        <span
+          class="absolute -top-2 -right-3 bg-red-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-sm"
+        >
+          {{ totalJokes() }}
+        </span>
+      </button>
+      <app-theme-toggle></app-theme-toggle>
+      <div class="relative">
+        <button
+          (click)="toggleDropdown()"
+          class="flex items-center focus:outline-none"
+        >
+          <app-avatar />
+          <span class="hidden md:flex">
+            <i class="fas fa-caret-down text-white ml-2"></i>
+          </span>
+        </button>
+        <div
+          *ngIf="dropdownOpen()"
+          class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-700 rounded-lg shadow-lg py-2"
+        >
+          <p class="font-bold px-4 py-2 text-gray-800 dark:text-gray-200">
+            {{ user.username }}
+          </p>
+          <hr />
+          <button
+            (click)="logout()"
+            class="w-full text-left px-4 py-2 text-gray-800 dark:text-gray-200 hover:bg-gray-200 dark:hover:bg-gray-600"
+          >
+            Cerrar Sesión
+          </button>
+        </div>
+      </div>
+      <div class="md:hidden">
+        <span class="flex text-gray-300 focus:outline-none">
+          <i
+            class="fas"
+            [ngClass]="menuOpen() ? 'fa fa-times' : 'fa fa-bars'"
+            (click)="toggleMenu()"
+            class="text-2xl cursor-pointer"
+          ></i>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="menuOpen()" class="md:hidden flex flex-col items-center mt-4">
+    <span class="flex text-white hover:text-gray-300 gap-5 cursor-pointer">
+      <button
+        (click)="openFavoritesModal()"
+        class="transition duration-300 relative"
+      >
+        <i class="fas fa-heart text-red-500 text-2xl"></i>
+        <span
+          class="absolute -top-2 -right-3 bg-red-600 text-white rounded-full h-5 w-5 flex items-center justify-center text-sm"
+        >
+          {{ totalJokes() }}
+        </span>
+      </button>
+      Mis Favoritos
+    </span>
+  </div>
+</nav>
+
+<div
+  *ngIf="favoritesModalOpen()"
+  class="fixed inset-0 flex items-center justify-end bg-black bg-opacity-50 z-50"
+>
+  <div
+    class="bg-white dark:bg-gray-700 p-6 shadow-2xl w-full max-w-md h-full flex flex-col"
+  >
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-200">
+        Mis Favoritos
+      </h3>
+      <button
+        (click)="closeFavoritesModal()"
+        class="text-gray-800 dark:text-gray-200 focus:outline-none"
+      >
+        <i class="fas fa-times text-2xl"></i>
+      </button>
+    </div>
+    <ul class="p-2 rounded-lg flex-1 overflow-y-auto">
+      <li
+        *ngFor="let joke of jokes()"
+        class="mb-2 text-gray-800 dark:text-gray-200 border-b border-gray-300 dark:border-gray-600 pb-2 flex justify-between items-center gap-3"
+      >
+        <span>{{ joke.joke }}</span>
+        <button
+          (click)="removeFromFavorites(joke._id)"
+          class="text-red-500 hover:text-red-700"
+        >
+          <i class="fas fa-trash text-lg"></i>
+        </button>
+      </li>
+    </ul>
+    <div
+      class="mt-4 flex justify-between items-center border-t border-gray-300 dark:border-gray-600 pt-4"
+    >
+      <span class="text-gray-800 dark:text-gray-200 font-bold">Total:</span>
+      <span class="text-gray-800 dark:text-gray-200">{{ jokes().length }}</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+/* styles.css */
+body {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100;
+}
+
+nav {
+  @apply shadow-md;
+}
+
+button:focus {
+  @apply outline-none ring-2 ring-gray-500 dark:ring-gray-300;
+}

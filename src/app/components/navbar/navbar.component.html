@@ -1,0 +1,57 @@
+<nav
+  class="fixed top-0 left-0 right-0 bg-gray-800 p-4 dark:bg-gray-900 shadow-md z-50"
+>
+  <div
+    class="container max-w-screen-lg mx-auto flex justify-between items-center"
+  >
+    <a routerLink="/">
+      <div class="flex items-center gap-4">
+        <i
+          class="fas fa-smile-beam animate-bounce fas fa-laugh-squint text-yellow-500 text-2xl"
+        ></i>
+        <h1 class="text-white text-2xl font-bold">Joke Haven</h1>
+      </div>
+    </a>
+    <div class="hidden md:flex items-center">
+      <app-theme-toggle></app-theme-toggle>
+      <a
+        routerLink="/login"
+        class="text-white ml-4 hover:text-gray-300 transition duration-300"
+      >
+        Iniciar Sesión
+      </a>
+      <a
+        routerLink="/register"
+        class="text-white ml-4 hover:text-gray-300 transition duration-300"
+      >
+        Registrarse
+      </a>
+    </div>
+    <div class="md:hidden">
+      <span class="flex gap-3 text-gray-300 focus:outline-none">
+        <app-theme-toggle></app-theme-toggle>
+
+        <i
+          class="fas"
+          [ngClass]="menuOpen() ? 'fa fa-times' : 'fa fa-bars'"
+          (click)="toggleMenu()"
+          class="text-2xl cursor-pointer"
+        ></i>
+      </span>
+    </div>
+  </div>
+  <div *ngIf="menuOpen()" class="md:hidden flex flex-col items-center mt-4">
+    <a
+      routerLink="/login"
+      class="text-white my-2 hover:text-gray-300 transition duration-300"
+    >
+      Iniciar Sesión
+    </a>
+    <a
+      routerLink="/register"
+      class="text-white my-2 hover:text-gray-300 transition duration-300"
+    >
+      Registrarse
+    </a>
+  </div>
+</nav>

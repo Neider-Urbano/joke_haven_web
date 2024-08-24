@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+
+<div
+  class="min-h-[100vh] flex items-center justify-center bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900 px-14 pt-24 pb-10 md:px-0 md:pt-14 md:pb-0"
+>
+  <div
+    class="bg-white p-8 rounded-lg shadow-2xl dark:bg-gray-700 transform transition-all duration-500 hover:scale-105 max-w-screen-lg mx-auto text-center"
+  >
+    <h2
+      class="text-4xl font-extrabold flex flex-col justify-center text-gray-800 dark:text-gray-200"
+    >
+      <span> ¡Bienvenido! </span>
+    </h2>
+    <p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+      El mejor lugar para encontrar los chistes más divertidos.
+    </p>
+    <div class="bg-gray-100 p-6 rounded-lg shadow-md mb-6 dark:bg-gray-600">
+      <h3 class="text-2xl font-bold mb-2 text-gray-800 dark:text-gray-200">
+        Chiste del Día
+      </h3>
+      <p class="text-lg text-gray-700 dark:text-gray-300">
+        ¿Por qué los científicos no confían en los átomos?
+      </p>
+      <p class="text-lg font-bold text-gray-900 dark:text-gray-100">
+        ¡Porque lo hacen todo!
+      </p>
+    </div>
+    <div class="flex justify-center">
+      <button
+        class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
+      >
+        <a routerLink="/login">
+          <i class="fas fa-laugh"></i>
+          Más Chistes
+        </a>
+      </button>
+    </div>
+    <footer class="mt-8 text-gray-700 dark:text-gray-300">
+      <p>&copy; 2024 Joke Haven. Todos los derechos reservados.</p>
+    </footer>
+  </div>
+</div>

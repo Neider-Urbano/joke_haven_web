@@ -1,0 +1,29 @@
+<app-navbar></app-navbar>
+
+<div
+  class="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-green-400 via-blue-500 to-purple-600 dark:from-gray-700 dark:via-gray-800 dark:to-gray-900"
+>
+  <div
+    class="bg-white p-8 rounded-lg shadow-2xl dark:bg-gray-700 transform transition-all duration-500 hover:scale-105 max-w-md mx-auto text-center"
+  >
+    <h1
+      class="text-6xl font-extrabold text-gray-800 dark:text-gray-200 mb-4 flex items-center justify-center gap-2"
+    >
+      404
+      <span class="text-yellow-400 animate-wiggle">😢</span>
+    </h1>
+    <p class="text-2xl text-gray-700 dark:text-gray-300 mb-4">
+      ¡Oops! Parece que te has perdido.
+    </p>
+
+    <div class="flex justify-center">
+      <button
+        (click)="goHome()"
+        class="bg-blue-500 text-white px-6 py-3 rounded-full hover:bg-blue-600 transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg"
+      >
+        <i class="fas fa-home"></i>
+        Volver
+      </button>
+    </div>
+  </div>
+</div>

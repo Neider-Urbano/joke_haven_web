@@ -1,0 +1,9 @@
+<span
+  (click)="toggleDarkMode()"
+  class="p-2 rounded text-gray-300 cursor-pointer"
+>
+  <i
+    [ngClass]="isDarkMode() ? 'fas fa-sun' : 'fas fa-moon'"
+    class="text-lg transition duration-300"
+  ></i>
+</span>
